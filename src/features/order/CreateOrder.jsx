@@ -1,8 +1,8 @@
 // import { useState } from "react";
 //  7YLEKO
 
-import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
-import { createOrder } from "../../services/apiRestaurant";
+import { Form, useActionData, useNavigation } from "react-router-dom";
+// import { createOrder } from "../../services/apiRestaurant";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -42,7 +42,8 @@ function CreateOrder() {
 
   // const [withPriority, setWithPriority] = useState(false);
   const cart = fakeCart;
-
+  //////////////////////////////////////////////////
+  // Styling Buttons: Element States and Transitions
   return (
     <div>
       <h2>Ready to order? Lets go!</h2>
@@ -82,7 +83,10 @@ function CreateOrder() {
 
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <button disabled={isSubmitting}>
+          <button
+            disabled={isSubmitting}
+            className="inline-block rounded-full bg-yellow-400 px-4 py-3 font-semibold uppercase tracking-wide text-stone-800 transition-colors duration-300 hover:bg-yellow-300 focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed"
+          >
             {isSubmitting ? "Placing order..." : "Order now"}
           </button>
         </div>
@@ -113,9 +117,11 @@ export async function action({ request }) {
   if (Object.keys(errors).length > 0) return errors;
 
   // If everything is okay, create new order and redirect
-  const newOrder = await createOrder(order);
+  // const newOrder = await createOrder(order);
 
-  return redirect(`/order/${newOrder.id}`);
+  // return redirect(`/order/${newOrder.id}`);
+
+  return null;
 }
 
 export default CreateOrder;
