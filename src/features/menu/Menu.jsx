@@ -5,7 +5,7 @@ import MenuItem from "./MenuItem";
 
 function Menu() {
   const menu = useLoaderData();
-  ///////////////////
+  ////////////////////
   // Styling the Menu
   return (
     <ul className="divide-y divive-stone-200 px-2">
